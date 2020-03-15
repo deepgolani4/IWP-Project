@@ -1,0 +1,179 @@
+*{
+	top:0;
+	left:0;
+	scroll-behavior: smooth;
+	font-family: 'Alegreya', serif;
+	color: white;
+	transition: 0.3s ease;
+}
+body{
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+header, #brain , #home, #heart, #kidney, #lung, #neuro{
+	height: 100vh;
+}
+ #brain , #home, #heart, #kidney, #lung, #neuro, .list{
+ 	padding-top: 50px;
+ }
+
+.card {
+  	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  	transition: 0.3s;
+  	width: 40%;
+}
+::-webkit-scrollbar{
+	display: none;
+}
+.card:hover {
+	box-shadow: 0 8px 16px 4px rgba(0,0,0,0.5);
+}
+.container {
+  	padding: 2px 16px;
+}
+.content{
+	position: relative;
+	top:-10%;
+	left: 40%;
+	width: 700px;
+	font-size: 25px;
+}
+.card{
+	position: relative;
+	transform: translate(70%,70%);
+}
+.block{
+	float: left;
+	width: 33.3%;
+	box-sizing: border-box;
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+
+nav ul{
+	list-style: none;
+	text-align: center;
+	font-size: 22px;
+	position: fixed;
+	left:32%;
+	z-index: 1;
+}
+nav ul a{
+	text-decoration: none;
+	padding:3px;
+}
+nav ul li{
+	display: inline-block;
+	padding-left: 15px;
+}
+nav ul li a:hover{
+	border:1px white solid;
+	background: white;
+	color: black;
+	border-radius: 5px;
+}
+header{
+	background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('main1.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed; 
+}
+header h2{
+	font-size: 40px;
+	position: relative;
+	transform: translate(40%,400%);
+}
+header h5{
+	font-size: 23px;
+	position: relative;
+	transform: translate(120%,300%);
+	padding: 5px;
+	padding-right: 10px;
+	border-bottom: 1px solid white;
+	border-radius: 10px;
+	display: inline-block;
+}
+#home{
+	background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('main2.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#home p{
+	padding: 5px;
+	padding-left: 10px;
+	font-size: 25px;
+	letter-spacing: 0.7px;
+}
+.image span img{
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	padding: 20px;
+	padding-left: 35px;
+}
+.image{
+	transform:translate(0, 48%);
+	text-align: center;
+}
+.image span img:hover{
+	box-shadow: 3px 3px 3px gray;
+	cursor: pointer;
+}
+
+.image img:hover{
+	cursor: pointer;
+}
+
+
+#heart{
+	background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('hb.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#brain{
+	background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('main3.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;	
+}
+
+#kidney{
+	background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('main4.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;	
+}
+
+#lung{
+	background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('main5.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;	
+}
+
+#neuro{
+	background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('main6.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;	
+}
+
+.block{
+	background: #012d2f;
+	color: white;
+	text-align: center;
+}
+.block h5{
+	color:white;
+	text-align: center;
+	text-decoration: underline;
+	padding-bottom: 3px;
+}
+.footer{
+	margin-right: -10px;
+}

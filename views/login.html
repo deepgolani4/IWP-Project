@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/loginq.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="h">G Hospitals</div>
+            <ul>
+                <li><a href="#plogin">Patient Login</a></li>
+                <li><a href="#psign">Patient Signup</a></li>
+                <li><a href="#dlogin">Doctor Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="plogin">
+        <div class="p"> Patient Login</div>
+        <form method="POST" class="fo">
+            <input type="text" name="namepl" required placeholder="Name"><br>
+            <input type="password" name="Passwordpl" required placeholder="Password"><br>
+            <input type="submit" name="Submit">
+        </form>
+    </div>
+    <div id="psign">
+        <div id="q"> Patient Signup</div>
+        <form method="POST" id="foo">
+            <input type="text" name="nameps" required placeholder="Name"><br>
+            <input type="text" name="usernameps" required placeholder="Username"><br>
+            <input type="text" name="addressps" placeholder="Address"><br>
+            <span id="sex">Sex: 
+				<input type="radio" name="s">Male&emsp;
+				<input type="radio" name="s">Female
+			</span><br>
+            <input type="phone" id="phone" name="phoneps" placeholder="Phone Number"><br>
+            <input type="password" name="Passwordps" required placeholder="Password"><br>
+            <input type="password" name="Password2ps" required placeholder="Confirm Password"><br>
+            <textarea id="about" placeholder="Enter details about you" rows="6" cols="25"></textarea>
+            <input type="submit" name="" placeholder="submit">
+        </form>
+    </div>
+    <div id="dlogin">
+        <div class="p"> Doctor Login</div>
+        <form method="POST" class="fo">
+            <input type="text" name="Namedl" required placeholder="Name"><br>
+            <input type="password" name="Passworddl" required placeholder="Password"><br>
+            <input type="submit" name="Submit">
+        </form>
+    </div>
+
+
+</body>
+
+</html>

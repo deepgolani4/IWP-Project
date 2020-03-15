@@ -1,0 +1,190 @@
+* {
+    top: 0;
+    left: 0;
+    scroll-behavior: smooth;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    height: 100vh;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('login.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#plogin,
+#psign,
+#dlogin {
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+header ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+}
+
+#h {
+    font-size: 70px;
+    position: relative;
+    top: 230px;
+    left: 150px;
+}
+
+header nav ul {
+    position: relative;
+    top: 230px;
+    left: 100px;
+    font-size: 25px;
+}
+
+header ul li {
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+header ul li:hover {
+    background: #062a4c;
+}
+
+#plogin,
+#dlogin {
+    text-align: center;
+}
+
+.p {
+    font-size: 40px;
+    position: relative;
+    top: 150px;
+    border-bottom: 1px solid white;
+    display: inline-block;
+    padding: 15px 7px;
+    border-radius: 10px;
+}
+
+.fo {
+    position: relative;
+    top: 170px;
+}
+
+#foo {
+    position: relative;
+    top: 20px;
+}
+
+.fo input[type="password"],
+.fo input[type="text"],
+.fo input[type="submit"],
+#foo input[type="password"],
+#foo input[type="text"],
+#foo input[type="submit"] {
+    background: none;
+}
+
+.fo input[type="text"],
+.fo input[type="password"],
+.fo input[type="phone"],
+#foo input[type="text"],
+#foo input[type="password"],
+#foo input[type="phone"],
+textarea {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid white;
+    padding: 10px;
+    width: 200px;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s ease;
+}
+
+::placeholder {
+    color: white;
+}
+
+.fo input[type="text"]:hover,
+textarea:hover,
+.fo input[type="password"]:hover,
+.fo input[type="text"]:focus,
+.fo input[type="password"]:focus {
+    border: 2px green solid;
+    outline: none;
+}
+
+#foo input[type="text"]:hover,
+textarea:hover,
+#foo input[type="password"]:hover,
+#foo input[type="text"]:focus,
+#foo input[type="password"]:focus {
+    border: 2px green solid;
+    outline: none;
+}
+
+.fo input[type="submit"],
+#foo input[type="submit"] {
+    border: 0;
+    background: transparent;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid white;
+    padding: 10px;
+    width: 150px;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+.fo input[type="submit"]:hover,
+#foo input[type="submit"]:hover {
+    border: 2px green solid;
+    background: green;
+}
+
+#psign {
+    padding-bottom: 200px;
+}
+
+#foo #sex {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    left: 44%;
+    padding-bottom: 10px;
+}
+
+#q {
+    font-size: 40px;
+    position: relative;
+    top: 10px;
+    border-bottom: 1px solid white;
+    display: inline-block;
+    padding: 15px 7px;
+    border-radius: 10px;
+    left: 43%;
+}

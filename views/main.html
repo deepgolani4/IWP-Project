@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Main</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="/user/login">Login/Signup</a></li>
+                <li><a href="#faclist">Facilities</a></li>
+                <li><a href="#">About us</a></li>
+            </ul>
+        </nav>
+        <br><br>
+        <h2><span style="text-shadow: 1px 1px 1px white;color: red">EKA</span> Hospitals</h2><br><br>
+        <h5>&emsp;For Changing Life, Without thinking twice</h5>
+    </header>
+    <div id="home">
+        <p><span style="font-size:50px;">W</span>e at EKA, ought to solve your problems and provide the best healthcare world-wide without any speck of mistrust. We offer the best hospitality and services. For us, your well-being is important and we endorse
+            it. We offer cure for multiple services and we happily boast that we are the best in the field. We are a team and we are not afraid of the diseases. We share your combat and make sure "we" win together.</p>
+        <div class="image">
+            <span><a href="#brain"><img src="brain.jpg"></a></span>
+            <span><a href="#heart"><img src="heart.jpg"></a></span>
+            <span><a href="#kidney"><img src="kidney.jpg"></a></span>
+            <span><a href="#lung"><img src="lung.jpg"></a></span>
+            <span><a href="#neuro"><img src="neuro.jpg"></a></span>
+        </div>
+    </div>
+    <div id="brain">
+        <div class="card" style="width:20%;">
+            <img src="brain.jpg" alt="Avatar" style="width:80%;position: relative; border-radius:5px; transform: translate(10%,10%); ">
+            <div class="container">
+                <h4 style="text-align: center;">20W Super-Computer</h4>
+            </div>
+        </div>
+        <div class="content">
+            Stroke has always been a much feared medical emergency, and rightly so, someone in the United States has a stroke every 40 seconds, and someone dies of a stroke every four minutes. Not all strokes are preventable, so it is very important to recognize
+            the early 6 signs of stroke and get treatment rapidly. Stroke damages brain tissue, but that loss can be minimized by getting quickly to an emergency room that can connect to a rapid response stroke center.
+        </div>
+    </div>
+
+    <div id="heart">
+        <div class="card" style="width:20%;">
+            <img src="heart.jpg" alt="Avatar" style="width:80%;position: relative; border-radius:5px; transform: translate(10%,10%); ">
+            <div class="container">
+                <h4 style="text-align: center;">Most Efficient Pump</h4>
+            </div>
+        </div>
+        <div class="content">
+            Our team of cardiologists and cardiothoracic surgeons are trained at the top institutes in India and abroad and are completely dedicated to the treatment for coronary heart diseases. Our pioneering work for the prevention and treatment of cardiac diseases
+            has led to the achievement of better outcomes and improved quality of life for thousands of cardiac patients who visit us each year with complex heart problems. Apollo Hospitals has a team led by the best Cardiologists in India and our advanced
+            infrastructure supports the complex nature of the cardiac care provided.
+        </div>
+    </div>
+
+    <div id="kidney">
+        <div class="card" style="width:20%;">
+            <img src="neuro.jpg" alt="Avatar" style="width:80%;position: relative; border-radius:5px; transform: translate(10%,10%); ">
+            <div class="container">
+                <h4 style="text-align: center;">Best Filter</h4>
+            </div>
+        </div>
+        <div class="content">
+            Nephrology mainly deals with problems related to the kidneys and Urology focuses on diagnosing and treating disorders of the urinary tract for both men and women. The Institutes of Urology& Andrology offers a full range of treatment options for complex
+            urologic disorders and diseases. The institutes have super specialists trained in Urology and Gynecology, offering advance urologic treatments for bladder disorders, pelvic organ prolapse and urinary incontinence. In addition, the institutes
+            offer state of the art treatment options including Robotic-assisted procedures, laparoscopy, slings, pelvic reconstruction, urethral re-implants that ensure faster recovery, minimal blood loss, and less scarring; all of which enables patients
+            to return to their daily routine much faster than conventional methods.
+        </div>
+    </div>
+
+    <div id="lung">
+        <div class="card" style="width:20%;">
+            <img src="lung.jpg" alt="Avatar" style="width:80%;position: relative; border-radius:5px; transform: translate(10%,10%); ">
+            <div class="container">
+                <h4 style="text-align: center;">Most Efficient Chimney</h4>
+            </div>
+        </div>
+        <div class="content">
+            The lungs are amongst the hardest working organs in the body. They expand and contract up to 20 times a minute; to supply oxygen which is distributed to tissues all across the body and expel carbon dioxide which is created throughout the body.
+            <br> Cancer in the lungs is common and people who smoke are at the highest risk of contracting lung cancer. The risk of lung cancer increases with the duration of smoking period and the number of cigarettes smoked
+        </div>
+    </div>
+
+    <div id="neuro">
+        <div class="card" style="width:20%;">
+            <img src="neuro.jpg" alt="Avatar" style="width:80%;position: relative; border-radius:5px; transform: translate(10%,10%); ">
+            <div class="container">
+                <h4 style="text-align: center;">Best Circuit Board</h4>
+            </div>
+        </div>
+        <div class="content">
+            Apollo Institute of Neurosciences is regarded as one of the best neurology and neurosurgery hospital in India with a legacy of innovation and excellence.
+            <br> Ably assisted by the latest Neuro-Radiology services, Neuro-Intensive Care facilities and Medical and Radiation Oncology services, our Neurologists and Neurosurgeons achieve outcomes in neurological disease & treatments matching those
+            of the leading institutions across the globe.
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="block">
+            <h5>G Hospitals</h5>
+            Contact: 9890696969<br> Email: ghospitals@hotmail.com
+        </div>
+
+        <div class="block">
+            <h5>Research</h5>
+            Medicine induced Nerve Re-activation<br> Chronic Respiratory Ease
+        </div>
+
+        <div class="block">
+            <h5>Location</h5>
+            Vellore, Tamil Nadu<br> Purulia,west-bengal
+        </div>
+    </div>
+
+    <script>
+        $.ajax({
+            url: "/signup",
+            method: "POST",
+
+        });
+    </script>
+
+
+</body>
+
+</html>
