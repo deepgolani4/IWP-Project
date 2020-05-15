@@ -1,0 +1,134 @@
+*{
+	margin:0;
+	border:0;
+	font-family: 'Lato', sans-serif;
+	padding: 0;
+	top:0;
+	left: 0;
+	scroll-behavior: smooth;
+	transition: 0.5s ease;
+	max-width: 100vw;
+}
+a{
+	text-decoration: none !important;
+	color: white
+}
+body{
+	background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),url('./abc1.jpeg');
+	background-size: cover;
+	color: white;
+	background-attachment: fixed;
+}
+ul{
+	text-decoration: none;
+}
+.navbar ul{
+	float: right;
+	padding: 3px;
+	padding-right: 20px;
+	padding-top: 10px;
+}
+.navbar li{
+	display: inline-block;
+	padding: 7px;
+	font-size: 18px;
+	margin-right: 5px;
+	background-color: transparent;
+	border-radius: 10px;
+	border-bottom: 1px solid white; 
+}
+.navbar li:hover{
+	cursor: pointer;
+	border:1px white solid;
+}
+.details{
+	position: relative;
+	top:12%;
+	left:8%;
+	text-align: center;
+	padding: 2px;
+	background: transparent;
+}
+.details span{
+	padding: 10px;
+	margin: 2px;
+	font-size: 20px;
+	border: 1px solid white;
+	border-radius: 7px;
+}
+.history{
+	position: relative;
+	top:18%;
+	left: 2%;
+	width: 13%;
+	height: 70%;
+	font-size: 17px;
+	text-align: justify;
+	border-right:3px solid white;
+	padding: 4px;
+	padding-right: 20px;
+	word-spacing: 4px;
+	background: transparent;
+}
+.schedules{
+	position: relative;
+	top: -53.5%;
+	left: 20%;
+	font-size: 18px;
+	word-spacing: 3px;
+	line-height: 1.3;
+	background: transparent;
+	border-right: 3px white solid;
+	width: 53%;
+	height: 70%;
+	padding-top: 5px;
+}
+.main{
+	height: 100vh;
+}
+::-webkit-scrollbar{
+	display: none;
+}
+.Appointment{
+	height: 100vh;
+	background: transparent;
+}
+#calendly-inline-widget{
+	background-color: transparent;
+}
+.motto{
+	position: relative;
+	top:-125%;
+	left: 75%;
+	font-size: 35px;
+	width: 20%;
+	height: 60%;
+}
+#search{
+	cursor: pointer;
+}
+.corona ul{
+	text-decoration: none;
+}
+.corona li{
+	display: inline-block;
+	border: 1px yellow solid;
+	font-size: 20px;
+	padding: 5px;
+	margin-bottom: 3px; 
+	width: 20%;
+	text-align: center;
+}
+.button{
+	position: relative;
+	left:0%;
+	border: 2px lightgreen solid;
+	border-radius: 25px;
+	padding: 5px 10px;
+	font-size: 25px;
+}
+.button:hover{
+	background: lightgreen;
+	color: black;
+	font-weight: bold;
+}

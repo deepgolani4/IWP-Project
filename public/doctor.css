@@ -1,0 +1,252 @@
+*{
+	margin:0;
+	border:0;
+	font-family: 'Lato', sans-serif;
+	padding: 0;
+	top:0;
+	left: 0;
+	scroll-behavior: smooth;
+	transition: 0.5s ease;
+	max-width: 100vw;
+}
+a{
+	text-decoration: none !important;
+	color: white
+}
+body{
+	background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),url('./doc1.jpeg');
+	background-size: cover;
+	color: white;
+	background-attachment: fixed;
+}
+ul{
+	text-decoration: none;
+}
+.navbar ul{
+	float: right;
+	padding: 3px;
+	padding-right: 20px;
+	padding-top: 10px;
+}
+.navbar li{
+	display: inline-block;
+	padding: 7px;
+	font-size: 18px;
+	margin-right: 5px;
+	background-color: transparent;
+	border-radius: 10px;
+	border: 1px solid lightgreen; 
+}
+.navbar li:hover{
+	cursor: pointer;
+	border:2px lightgreen solid;
+	background: lightgreen;
+	color: black;
+	font-weight:bold;
+}
+.details{
+	position: relative;
+	top:12%;
+	left:8%;
+	text-align: center;
+	padding: 2px;
+	background: transparent;
+}
+.doctor{
+	position: relative;
+	left: -7%;
+}
+.details span{
+	padding: 10px;
+	margin: 2px;
+	font-size: 20px;
+	border: 1px solid white;
+	border-radius: 7px;
+}
+.history{
+	position: relative;
+	top:18%;
+	left: 2%;
+	width: 13%;
+	height: 70%;
+	font-size: 17px;
+	text-align: justify;
+	border-right:3px solid white;
+	padding: 4px;
+	padding-right: 20px;
+	word-spacing: 4px;
+	background: transparent;
+}
+.schedules{
+	position: relative;
+	top: -53.5%;
+	left: 20%;
+	font-size: 18px;
+	word-spacing: 3px;
+	line-height: 1.3;
+	background: transparent;
+	border-right: 3px white solid;
+	width: 53%;
+	height: 70%;
+	padding-top: 5px;
+}
+.main{
+	height: 100vh;
+}
+::-webkit-scrollbar{
+	display: none;
+}
+.Appointment{
+	height: 100vh;
+	background: transparent;
+}
+#calendly-inline-widget{
+	background-color: transparent;
+}
+.motto{
+	position: relative;
+	top:-125%;
+	left: 75%;
+	font-size: 35px;
+	width: 20%;
+	height: 60%;
+}
+#search{
+	cursor: pointer;
+}
+.corona ul{
+	text-decoration: none;
+}
+.corona li{
+	display: inline-block;
+	border: 1px lightgreen solid;
+	font-size: 20px;
+	padding: 5px;
+	margin-bottom: 3px; 
+	width: 20%;
+	text-align: center;
+}
+.button{
+	position: relative;
+	left:0%;
+	border: 2px lightgreen solid;
+	border-radius: 25px;
+	padding: 5px 10px;
+	font-size: 25px;
+}
+.button:hover{
+	background: lightgreen;
+	color: black;
+	font-weight: bold;
+}
+
+select{
+	background: black;
+	color: white;
+	border: 1px white solid;
+	width: 100%;
+	-webkit-appearance:button;
+	box-shadow: 0 5px 5px rgba(0,153,0,0.1);
+	padding: 5px;
+	border-radius: none;
+	height: 8%;
+	outline: none
+}
+select:hover{
+	box-shadow: 0 5px 10px rgba(240,240,240,0.5)
+}
+button{
+	border: 1px lightgreen solid;
+	padding: 5px;
+	background: transparent;
+	color: white;
+	margin-top: 4px;
+	cursor: pointer;
+}
+button:hover{
+	background: lightgreen;
+	color:black;
+	font-weight: bold;
+}
+.diag{
+	display: flex;
+}
+.edit{
+	margin-left: 40px;
+}
+
+input[type="name"]{
+	background: transparent;
+	border: 1px white solid;
+	margin: 10px;
+	width: 20%;
+	text-align: center;
+	font-weight: bold;
+	padding: 3px;
+	font-size: 15px;
+	height: 25px;
+}
+.modal_medicine form{
+	position: relative;
+	top:25%;
+}
+#renew_medicine,#delete_medicine,#diagnosed,#history,#tests{
+	height: 100vh;
+	text-align: center;
+}
+#renew_medicine form{
+	position: relative;
+	top:30%;
+	font-size: 25px;
+}
+
+#delete_medicine form,#diagnosed form,#history form,#tests form{
+	position: relative;
+	top:30%;
+	font-size: 20px;
+}
+.modal_medicine{
+	/*position: absolute;
+	border: 1px white solid;
+	width: 17%;
+	text-align: center;
+	top:30%;
+	left:35%;
+	background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),url('meds.jpg');
+	background-size: cover;
+	color: white;
+	height: 200px;
+	padding: 10px 25px;
+	z-index: 1;
+	border-radius: 10px;*/
+	height: 100vh;
+	text-align: center;
+}
+::placeholder{
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px;
+}
+.addbtn{
+	color: white;
+	border: 1px white solid;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+
+textarea{
+	width: 30%;
+	height: 150px;
+	background: transparent;
+	border: 1px white solid;
+	text-align: center;
+	color: white;
+}
+.p_id{
+	position: relative;
+	top:5%;
+	left: 5%;
+	font-size: 40px;
+}
