@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Doctor</title>
+    <link rel="stylesheet" type="text/css" href="/doctor.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script type="text/javascript">
+      localStorage.setItem("medicine", "Valent80");
+      window.onload=()=>{
+      var modal_medicine=document.getElementById("medicine_modal");
+      modal_medicine.style.display="none";
+      var renew_medicine=document.getElementById("renew_medicine");
+      renew_medicine.style.display="none";
+      var delete_medicine=document.getElementById("delete_medicine");
+      delete_medicine.style.display="none";
+      var delete_medicine=document.getElementById("diagnosed");
+      delete_medicine.style.display="none";
+      var delete_medicine=document.getElementById("tests");
+      delete_medicine.style.display="none";
+      var delete_medicine=document.getElementById("history");
+      delete_medicine.style.display="none";
+    }
+      corona();
+      var data = null;
+      async function corona() {
+        console.log("hi");
+        await fetch("https://thevirustracker.com/free-api?global=stats")
+          .then((respone) => respone.json())
+          .then((res) => {
+            data = res.results[0];
+            setData();
+            console.log(res.results[0]);
+          });
+      }
+      function setData() {
+        document.getElementById("cases").innerHTML = data.total_cases;
+        document.getElementById("recovered").innerHTML = data.total_recovered;
+        document.getElementById("deaths").innerHTML = data.total_deaths;
+        document.getElementById("newcases").innerHTML =
+          "+" + data.total_new_cases_today;
+        document.getElementById("newdeaths").innerHTML =
+          "+" + data.total_new_deaths_today;
+      }
+
+    </script>
+    <script type="text/javascript">
+      function searchmed() {
+        window.open(
+          "http://google.com/search?q=" + localStorage.getItem("medicine")
+        );
+      }
+      function addmed(){
+         var modal_medicine=document.getElementById("medicine_modal");
+          modal_medicine.style.display="block";
+          document.onkeydown = function(evt) {
+          evt = evt || window.event;
+          if (evt.keyCode == 27) {
+             closemed();
+          }
+      };
+      }
+      function closemed(){
+         var modal_medicine=document.getElementById("medicine_modal");
+        modal_medicine.style.display="none";
+      }
+      function addrenew(){
+        var renew=document.getElementById("renew_medicine");
+        renew.style.display="block";
+        document.onkeydown = function(evt) {
+          evt = evt || window.event;
+          if (evt.keyCode == 27) {
+             closerenew();
+          }
+      };
+    }
+      function closerenew(){
+        var renew_medicine=document.getElementById("renew_medicine");
+        renew_medicine.style.display="none";
+      }
+      function adddelete(){
+        var delete_medicine=document.getElementById("delete_medicine");
+        delete_medicine.style.display="block";
+        document.onkeydown = function(evt) {
+          evt = evt || window.event;
+          if (evt.keyCode == 27) {
+             closedelete();
+          }
+      };
+      }
+      function closedelete(){
+        var delete_medicine=document.getElementById("delete_medicine");
+        delete_medicine.style.display="none";
+      }
+      function addedit(){
+        var delete_medicine=document.getElementById("diagnosed");
+        delete_medicine.style.display="block";
+        document.onkeydown = function(evt) {
+          evt = evt || window.event;
+          if (evt.keyCode == 27) {
+             closeedit();
+          }
+      };
+      }
+       function closeedit(){
+        var delete_medicine=document.getElementById("diagnosed")
+        delete_medFicine.style.display="none";
+      }
+      function addtest(){
+        var delete_medicine=document.getElementById("tests");
+        delete_medicine.style.display="block";
+        document.onkeydown = function(evt) {
+          evt = evt || window.event;
+          if (evt.keyCode == 27) {
+             closetest();
+          }
+      };
+      }
+       function closetest(){
+        var delete_medicine=document.getElementById("tests")
+        delete_medicine.style.display="none";
+      }
+
+      function addhistory(){
+        var delete_medicine=document.getElementById("history");
+        delete_medicine.style.display="block";
+        document.onkeydown = function(evt) {
+          evt = evt || window.event;
+          if (evt.keyCode == 27) {
+             closehistory();
+          }
+      };
+      }
+       function closehistory(){
+        var delete_medicine=document.getElementById("history")
+        delete_medicine.style.display="none";
+      }
+    </script>
+
+    <div class="main">  
+      <div class="navbar">
+        <ul>
+          <li>Logout</li>
+        </ul>
+      </div>
+
+      <div class="details">
+        <span class="doctor">
+            Doctor: Dr Ali Toppo
+        </span>
+      </div>
+
+      <div class="history">
+        <u style="font-size: 20px;"><h3>Select Patient</h3></u><br />
+        <select>
+          <optgroup label="General">
+            <option>Ramesh Kumar</option>
+            <option>Deep Golani</option>
+          </optgroup>
+          <optgroup label="Corona-Virus">
+            <option>Michael Rodriguez</option>
+          </optgroup>
+        </select>
+        <br/><br/>
+        <div class="status">
+          <h3  style="font-size: 20px;">Patient Status:  Active</h3></u><br />
+        </div>
+        <br/>
+
+        <div class="patient_history">
+          <u style="font-size: 20px;"><h3>Patient History</h3></u><br />
+          The Patient has been diagnosed by Trauma and heart illness for a while.
+        He has been in a Serious condition and is pretty unwell in the duration.
+        Several Acute disorders have been detected. The reports are not that
+        promising either. There has been a brief history of Smoking and cocaine
+        addiction.
+        </div>
+
+      </div>
+      
+      <div class="schedules">
+        <div class="meds">
+          <h2><u>Add Patient Details</u></h2>
+          <br />
+          <h3>Medication</h3>
+            <a href="#addmed">&emsp;<button onclick="addmed()">&emsp;Add Medicine & Update History&emsp;</button></a>
+            <a href="#renew_medicine">&emsp;<button onclick="addrenew()">&emsp;Renew Medications&emsp;</button></a>
+            &emsp;<button onclick="adddelete()">&emsp;Patient Disable&emsp;</button>
+            <!--<a href="#history"><button onclick="addhistory()">&emsp;Patient History&emsp;</button></a>-->
+        </div>
+        <div class="search">
+          <br />
+          <span class="diag"><h2>Diagnosed: Tri-Cuspid Valves Replacement</h2>
+           <a href="#diagnosed"><button class="edit" onclick="addedit()">&emsp;Edit&emsp;</button></a>
+           <a href="#tests"><button class="edit" onclick="addtest()">&emsp;Schedule Tests&emsp;</button></span></a>
+          <br />
+          <h2 style="color: red;" id="search" onclick="searchmed()">
+            Get More Information about the disease!?
+          </h2>
+        </div>
+        <div>
+          <br />
+          <h2
+            style="
+              color: lightgreen;
+              border: 1px lightgreen solid;
+              display: inline-block;
+              padding: 5px;
+            "
+          >
+            Covid-19 Live World Tracker
+          </h2>
+          <br /><br />
+          <ul class="corona" style="color: lightgreen;">
+            <li>Total Cases</li>
+            <li>Total Recovered</li>
+            <li>Total Deaths</li>
+          </ul>
+          <ul class="corona">
+            <li id="cases">-</li>
+            <li id="recovered">-</li>
+            <li id="deaths">-</li>
+          </ul>
+          <ul class="corona">
+            <li id="newcases">-</li>
+            <li>-</li>
+            <li id="newdeaths">-</li>
+          </ul>
+        </div>
+      </div>
+      <div></div>
+      <div class="motto">
+        <br />
+        <h3 style="margin-bottom: 4px;"><u>#flattenthecurve</u></h3>
+        <h3>
+          Restrict today,
+          <span style="color: lightblue;">For A Safer Tomorrow.</span> Avoid
+          Going out during Corona-Virus Lockdown.
+        </h3>
+        <br />
+        <a href="https://www.pmcares.gov.in/en" class="button">Donate Now</a>
+      </div>
+    </div>
+    <div style="position: relative;top:1px;width: 1px;">
+      </div>
+    <div class="modal_medicine" id="addmed">
+      
+      <form method="POST">
+        <h2>Add Medicine</h2><br/>
+        <input type="name" name="nameOfMed" placeholder="Name of the medicine"><br/>
+        <input type="name" name="numberOfMed" placeholder="Number of days"><br/>
+        <input type="name"  name="NuberOfMedDay" placeholder="Number of times a day"/><br/>
+        <textarea placeholder="Patient History" name="patHistory"></textarea><br/>
+        <button class="addbtn" style="padding: 5px;width: 120px;"><b>Submit</b></button>
+      </form>
+    </div>
+
+    
+
+
+    <div class="modal-medicine" id="renew_medicine">
+      
+      <form>
+          <h2>Renewed Medicines</h2><br/>
+           1. <b>Valent 80</b>: 2 X 24days<br />
+          2. <b>Biselect 5</b>: 3 X 30days<br />
+          3. <b>Nadolol</b>: 2 X 10days<br /><br/>
+      </form>
+    </div>
+
+   
+
+    <div class="modal-medicine" id="diagnosed">
+      
+      <form>
+        <h2>Update Diagnosis</h2><br/>
+        <input type="name" placeholder="Name of the Disease"><br/>
+        <button class="addbtn"><b>Submit</b></button>&emsp;
+      </form>
+    </div>
+
+    
+
+
+    <div class="modal-medicine" id="tests">
+      
+      <form>
+        <h2>Schedule Examination</h2><br/>
+        <input type="name" placeholder="Name of the Test"><br/>
+        <input type="name" placeholder="Description"><br/>
+        <button class="addbtn"><b>Submit</b></button>&emsp;
+        
+      </form>
+    </div>
+
+     
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patient</title>
+    <link rel="stylesheet" type="text/css" href="/patient.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script type="text/javascript">
+      localStorage.setItem("medicine", "Valent80");
+      corona();
+      var data = null;
+      async function corona() {
+        console.log("hi");
+        await fetch("https://thevirustracker.com/free-api?global=stats")
+          .then((respone) => respone.json())
+          .then((res) => {
+            data = res.results[0];
+            setData();
+            console.log(res.results[0]);
+          });
+      }
+      function setData() {
+        document.getElementById("cases").innerHTML = data.total_cases;
+        document.getElementById("recovered").innerHTML = data.total_recovered;
+        document.getElementById("deaths").innerHTML = data.total_deaths;
+        document.getElementById("newcases").innerHTML =
+          "+" + data.total_new_cases_today;
+        document.getElementById("newdeaths").innerHTML =
+          "+" + data.total_new_deaths_today;
+      }
+    </script>
+    <script type="text/javascript">
+      function searchmed() {
+        window.open(
+          "http://google.com/search?q=" + localStorage.getItem("medicine")
+        );
+      }
+    </script>
+    <div class="main">
+      <div class="navbar">
+        <ul>
+          <li><a href="#appointment">Book An Appointment</a></li>
+          <li>Logout</li>
+        </ul>
+      </div>
+
+      <div class="details">
+        <span class="name" name="patientName">
+          <%= patientName %>
+        </span>
+        <span class="dept" name="dept">
+          Counselling Department: Mathematics
+        </span>
+        <span class="doctor" name="doctor">
+          Counselling Doctor: Murgu Sundaram
+        </span>
+      </div>
+
+      <div class="history">
+        <u style="font-size: 20px;"><h3>Patient History</h3></u><br />
+        The Patient has been diagnosed by Trauma and heart illness for a while.
+        He has been in a Serious condition and is pretty unwell in the duration.
+        Several Acute disorders have been detected. The reports are not that
+        promising either. There has been a brief history of Smoking and cocaine
+        addiction.
+      </div>
+      <div class="schedules">
+        <div class="meds">
+          <h2><u>Patient Schedules</u></h2>
+          <br />
+          <p>
+            The patient has been scheduled the following medications:<br />
+            &emsp;1. <b>Valent 80</b>: 2 X 24days<br />
+            &emsp;2. <b>Biselect 5</b>: 3 X 30days<br />
+            &emsp;3. <b>Nadolol</b>: 2 X 10days<br />
+          </p>
+        </div>
+        <div class="search">
+          <br />
+          <h2>Diagnosed: Tri-Cuspid Valves Replacement</h2>
+          <br />
+          <h2 style="color: lightgreen;" id="search" onclick="searchmed()">
+            Curious About your medicines? Click Here!
+          </h2>
+        </div>
+        <div>
+          <br />
+          <h2
+            style="
+              color: yellow;
+              border: 1px yellow solid;
+              display: inline-block;
+              padding: 5px;
+            "
+          >
+            Covid-19 Live World Tracker
+          </h2>
+          <br /><br />
+          <ul class="corona" style="color: lightgreen;">
+            <li>Total Cases</li>
+            <li>Total Recovered</li>
+            <li>Total Deaths</li>
+          </ul>
+          <ul class="corona">
+            <li id="cases">-</li>
+            <li id="recovered">-</li>
+            <li id="deaths">-</li>
+          </ul>
+          <ul class="corona">
+            <li id="newcases">-</li>
+            <li>-</li>
+            <li id="newdeaths">-</li>
+          </ul>
+        </div>
+      </div>
+      <div></div>
+      <div class="motto">
+        <br />
+        <h3 style="margin-bottom: 4px;"><u>#flattenthecurve</u></h3>
+        <h3>
+          Restrict today,
+          <span style="color: lightblue;">For A Safer Tomorrow.</span> Avoid
+          Going out during Corona-Virus Lockdown.
+        </h3>
+        <br />
+        <a href="https://www.pmcares.gov.in/en" class="button">Donate Now</a>
+      </div>
+    </div>
+    <div class="Appointment" id="appointment">
+      <div
+        class="calendly-inline-widget"
+        style="min-width: 320px; height: 720px; background: transparent;"
+        data-auto-load="false"
+      >
+        <script
+          type="text/javascript"
+          src="https://assets.calendly.com/assets/external/widget.js"
+        ></script>
+        <script>
+          Calendly.initInlineWidget({
+            url: "https://calendly.com/siddhanttiwary/15min",
+          });
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
