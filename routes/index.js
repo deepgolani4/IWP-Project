@@ -5,6 +5,9 @@ const router = express.Router();
 //     res.render('main', {});
 // });
 
+const mongoschema = require('../models/User')
+
+
 router.route('/').get((req, res) => {
     res.render('main', { title: "hi" });
 })
