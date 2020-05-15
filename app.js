@@ -1,26 +1,14 @@
+require('./models/db')
 const express = require('express');
+const cors=require('cors');
 const app = express();
 const path = require('path');
-const mongoose = require('mongoose');
-var http = require('http');
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/iwp";
-var db = require('../myapp/routes/db')
+const bodyparser=require('body-parser')
+const PORT=process.env.PORT || 5000;
 
 //body-prser
-app.use(express.urlencoded({ extended: false }));
-
-//connections
-db.connect((err) => {
-    if (err) {
-        console.log("can't connect");
-        process.exit(1);
-    } else {
-        app.listen(3000, () => {
-            console.log('listening on port 3000');
-
-        });
-    }
+app.listen(PORT,()=>{
+    console.log('liatening on 5000');
 });
 
 //ejs to html server handling
@@ -29,7 +17,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(express.json());
-
+app.use(cors());
+app.use(bodyparser.urlencoded({
+    extended: true
+}));
 // using index and user 
 app.use('/', require('./routes/index'));
 app.use('/user', require('./routes/user'));
