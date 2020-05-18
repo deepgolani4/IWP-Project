@@ -168,7 +168,7 @@
       <div class="history">
         <u style="font-size: 20px;"><h3>Select Patient</h3></u><br />
         <select name="name">
-          <optgroup label="General" name="patName">
+          <optgroup id="list" label="General" name="patName">
             <option>Ramesh Kumar</option>
             <option>shirsha munjani</option>
             <option>nimish shah</option>
@@ -183,11 +183,6 @@
             <option>shrishty gupta</option>
             <option>nishant gada</option>
             <option>muskan agarwal</option>
-          </optgroup>
-          <optgroup label="qwer" >
-          <tbody id="list">
-
-          </tbody>
           </optgroup>
         </select>
         <button style="padding: 5px;width: 120px;"><b>select</b></button>
@@ -344,30 +339,19 @@
     <script>
       $(document).ready(() => {
         const display = $("#list");
-        const getData = () => {
-          fetch('/user/doctor/open', { method: "get" }).then((res) => {
-            return res.json();
-          }).then((data) => {
-            console.log(data);a
-            displayList(data);
+
+        $.get('/user/doctor/open').then((data)=>{
+          data.forEach((data_,i)=>{
+            display.append(buildTemplate(data_));
           });
-        }
-  
+        });
+
         const buildTemplate = (mongo) => {
-          return `<tr>
-                <td id="${mongo._id}>${mongo.username}</td>
-                
-              </tr>`;
-        }
-  
-        const displayList = (data) => {
-          data.forEach((mongo) => {
-            display.append(buildTemplate(mongo));
-          });
-        }
-  
-        getData();
-  
+          // console.log('innn');
+          return `<option>
+                    ${mongo.username}
+                  </option>`;
+        }    
       });
     </script>
   
