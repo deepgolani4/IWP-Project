@@ -4,11 +4,16 @@ const user = require('../models/User');
 const patDetails = require('../models/doctor');
 var mongoose = require('mongoose');
 const Login = mongoose.model('user');
+var MongoClients = require('mongodb').MongoClient;
+const path = require('path');
+var session = require('express-session');
+const body_parser=require('body-parser');
+
 const docData =mongoose.model('patDetails',
 {medicine: {
     type: String,
 },
-patientname: {
+patname: {
     type:String,
 },
 pathistory: {
@@ -16,13 +21,15 @@ pathistory: {
 },
 }
 );
-const db=require('../models/db')
-
+const db = require("../models/db");
+router.use(body_parser.json());
+router.use(express.json());
 
 const collection = {
         //want=true
         login: "doctorlogin",
-        plogin: "login"
+        plogin: "login",
+        patDetails:"patdetails"
 
     }
     //register hande
@@ -40,11 +47,25 @@ function insertRecord(req,res) {
     login.phone = req.body.phoneps;
     login.password = req.body.Passwordps;
     login.password2 = req.body.Password2ps;
-       
+    const usrname = req.body.usernameps;
+    const password =req.body.Passwordps;
+    const password2 = req.body.Password2ps;
+    console.log(usrname);
+    
     login.save((err,doc) => {
         if(!err) {
-            console.log('sign up succesfull');
-            res.render('patient',{})
+            Login.findOne({username:usrname,password:password},function(err, user) {
+                if (user) {
+                    console.log('sign up succesfull');
+                    res.render('patient',{patientName:`patient : ${doc.name}`,medicine:"doctor will add your medicine then you can see it",patHistory:"doctor will add up your history then you can see it"});
+                    console.log(user)
+                } else {
+                    console.log("username is alreay taken");
+                    res.render('login',{})
+                    console.log(user);
+                }
+            })
+        
         }
             else {
             console.log('error during record insertion');
@@ -56,6 +77,9 @@ function insertPatDetails(req,res) {
     const nameOfMed=req.body.nameOfMed;
     const numberOfMed=req.body.numberOfMed;
     const NuberOfMedDay=req.body.NuberOfMedDay;
+    const name=req.body.name;
+    console.log(name);
+    patDetail.patname=req.body.name;
     patDetail.pathistory=req.body.patHistory;
     var medDetails=`${nameOfMed}:${numberOfMed}:${NuberOfMedDay}`;
     patDetail.medicine=medDetails;
@@ -129,7 +153,21 @@ router.post('/login',(req,res,next) => {
                     console.log('user not found');
                     res.render('login')
                 } else {
-                    res.render('patient',{patientName:`Patient: ${logindata.namepl}`});
+
+                    docData.findOne({patname:logindata.namepl},function(err, docs) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            if (docs.medicine) {
+                                console.log('doctor will import record shortlery ');
+                                console.log('login',{})
+                            }
+                            res.render('patient',{patientName:`patientname:${logindata.namepl}`,medicine:`${docs.medicine}`,patHistory:`${docs.pathistory}`});
+                        }
+                    })
+                    
+                    // res.render('patient',{patientName:`patientname:${logindata.namepl}`,medicine:"1234"});
+                    // res.sendFile(path.join(__dirname,'../views/patient.html'));
                 }
 
                 
@@ -141,7 +179,7 @@ router.post('/login',(req,res,next) => {
                 
                 Login.findOne({ username:doctorData.namedl, password:doctorData.passowrddl}, function(err, user) {
                     if(err) {
-                        console.log(err)
+                        console.log(err);
 
                     }
 
@@ -149,7 +187,19 @@ router.post('/login',(req,res,next) => {
                         console.log('doctor credintials not found')
                         res.render('login');
                     } else {
-                        res.redirect('/user/doctor');
+                        res.sendFile(path.join(__dirname, '../views/doctor.html'));
+                        console.log("doctor login success");
+                        // Login.find({}, function(err,doc) {
+                        //     if (err) {
+                        //         console.log(err);
+                        //     } else {
+                        //         res.render('doctor',{})
+                        //         console.log(doc.name);
+                        //         // console.log(doc);
+                        //         // console.log(doc);
+                        //     }
+                        // });
+                        
                     }
                 })
                 }
@@ -174,8 +224,51 @@ router.post('/doctor',(req,res,next) => {
     insertPatDetails(req,res);
 });
 
+router.get('/patient/open', (req, res) => {
+    docData.find({}, function(err,doc) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(doc);
+            // console.log(doc);
+        }
+    });
 
+    // docData.find((err,docs) => {
+    //     if (!err) {
+    //         console.log(err);
+    //     } else {
+    //         res.json(docs);
+    //         console.log(docs);
+    //     }
+    // })
+});
 
+router.get('/logout',function(req,res) {
+    // req.session.destroy(function(err){  
+    //     if(err){  
+    //         console.log(err); 
+    //         Response.errorResponse(err.message,res); 
+    //     }  
+    //     else  
+    //     {  
+    //         Response.successResponse('User logged out successfully!',res,{}); 
+    //     }  
+    // });
+    delete req.session;
+    res.redirect("/")
+})
+
+router.get('/doctor/open', (req, res) => {
+    Login.find({}, function(err,doc) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(doc);
+            // console.log(doc);
+        }
+    });
+})
 
 
 module.exports = router;
@@ -283,4 +376,3 @@ module.exports = router;
 
 
 
-// module.exports = router;

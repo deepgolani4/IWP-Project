@@ -2,6 +2,20 @@
 <html>
   <head>
     <title>Patient</title>
+    <style>
+      
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/patient.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
@@ -40,17 +54,20 @@
         );
       }
     </script>
+     
+
     <div class="main">
       <div class="navbar">
         <ul>
           <li><a href="#appointment">Book An Appointment</a></li>
-          <li>Logout</li>
+          
+          <li><a class="logout" href="/user/logout"> logout </a></li>
         </ul>
       </div>
 
       <div class="details">
         <span class="name" name="patientName">
-          <%= patientName %>
+         <%= patientName %>
         </span>
         <span class="dept" name="dept">
           Counselling Department: Mathematics
@@ -62,11 +79,13 @@
 
       <div class="history">
         <u style="font-size: 20px;"><h3>Patient History</h3></u><br />
-        The Patient has been diagnosed by Trauma and heart illness for a while.
+        <tbody id="patHistory"></tbody>
+        <%= patHistory %>
+        <!-- The Patient has been diagnosed by Trauma and heart illness for a while.
         He has been in a Serious condition and is pretty unwell in the duration.
         Several Acute disorders have been detected. The reports are not that
         promising either. There has been a brief history of Smoking and cocaine
-        addiction.
+        addiction. -->
       </div>
       <div class="schedules">
         <div class="meds">
@@ -74,9 +93,11 @@
           <br />
           <p>
             The patient has been scheduled the following medications:<br />
-            &emsp;1. <b>Valent 80</b>: 2 X 24days<br />
+            <p></p>
+            <%= medicine %>
+            <!-- &emsp;1. <b>Valent 80</b>: 2 X 24days<br />
             &emsp;2. <b>Biselect 5</b>: 3 X 30days<br />
-            &emsp;3. <b>Nadolol</b>: 2 X 10days<br />
+            &emsp;3. <b>Nadolol</b>: 2 X 10days<br /> -->
           </p>
         </div>
         <div class="search">
@@ -147,5 +168,41 @@
         </script>
       </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+  	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(() => {
+        const display=$("#patHistory");
+        const getData = () => {
+          fetch('/user/patient/open',{ method:"get" }).then((res) => {
+            return res.json();
+          }).then((data) => {
+            console.log(data);
+            displayList(data);
+          });
+        }
+
+        const buidTemplate = (mongo) => {
+          return `<p id="${mongo._id}>${mongo.medicine} </p>`;
+        }
+
+        const displayList = (data) => {
+          data.forEach((mongo) => {
+            display.append(buidTemplate(mongo));
+          });
+        }
+        getData();
+
+      });
+    </script>
+
   </body>
 </html>

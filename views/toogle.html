@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Boom!</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script>
+        var stuff = {
+            run: function () {
+                $('button').bind('click', function () {
+                    if ('geolocation' in navigator) {
+                        var geo_options = {
+                            enableHighAccuracy: true, 
+                            maximumAge        : 30000, 
+                            timeout           : 27000
+                        };
+                        navigator.geolocation.getCurrentPosition(stuff.send, stuff.error, geo_options);
+                    }
+                });
+            },
+            error: function (msg) {
+                console.log(msg);
+            },
+            send: function (object) {
+                console.log(object);
+            }
+        };
+
+        $(function() {
+            stuff.run();
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Geolocation.</h1>
+        <p>
+            <button class="btn btn-large">Press Me!</button>
+        </p>
+    </div>
+</body>
+</html>
