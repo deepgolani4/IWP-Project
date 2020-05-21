@@ -8,6 +8,8 @@ var MongoClients = require('mongodb').MongoClient;
 const path = require('path');
 var session = require('express-session');
 const body_parser=require('body-parser');
+var JSAlert = require('js-alert');
+
 
 const docData =mongoose.model('patDetails',
 {medicine: {
@@ -57,10 +59,13 @@ function insertRecord(req,res) {
             Login.findOne({username:usrname,password:password},function(err, user) {
                 if (user) {
                     console.log('sign up succesfull');
+
                     res.render('patient',{patientName:`patient : ${doc.name}`,medicine:"doctor will add your medicine then you can see it",patHistory:"doctor will add up your history then you can see it"});
                     console.log(user)
                 } else {
                     console.log("username is alreay taken");
+                    // window.alert("credintials is alerdy taken")
+                    JSAlert.alert("this is taken");
                     res.render('login',{})
                     console.log(user);
                 }
@@ -69,6 +74,7 @@ function insertRecord(req,res) {
         }
             else {
             console.log('error during record insertion');
+            // window.alert("error during login,please try again");
             }
     });                                   
 }
@@ -85,9 +91,11 @@ function insertPatDetails(req,res) {
     patDetail.medicine=medDetails;
     patDetail.save((err,doc) => {
         if(!err) {
-            console.log('succeswful');
+            console.log('successful');
+            // window.alert("sign up succesfull");
         } else {
             console.log('error during insertion')
+            // window.alert("error during insertion");
         }
     })
 
@@ -146,11 +154,14 @@ router.post('/login',(req,res,next) => {
                 if(err) {
                     console.log(err);
                     return res.status(500).send();
+                
                 }
 
                 if(!user) {
                     
                     console.log('user not found');
+                    JSAlert.alert("credintial is wrong");
+                    // window.alert("credintial is wrong");
                     res.render('login')
                 } else {
 
@@ -160,9 +171,10 @@ router.post('/login',(req,res,next) => {
                         } else {
                             if (docs.medicine) {
                                 console.log('doctor will import record shortlery ');
+                                // window.alert("docctor will insert your medicine shorty try login after some time");
                                 console.log('login',{})
                             }
-                            res.render('patient',{patientName:`patientname:${logindata.namepl}`,medicine:`${docs.medicine}`,patHistory:`${docs.pathistory}`});
+                            res.render('patient',{patientName:`Patientname:${logindata.namepl}`,medicine:`${docs.medicine}`,patHistory:`${docs.pathistory}`});
                         }
                     })
                     
@@ -185,10 +197,13 @@ router.post('/login',(req,res,next) => {
 
                     if(!user) {
                         console.log('doctor credintials not found')
+                        // window.alert("doctor credintial is not found")
+                        // window.alert("doctor credintial not found");
                         res.render('login');
                     } else {
-                        res.sendFile(path.join(__dirname, '../views/doctor.html'));
                         console.log("doctor login success");
+                        // res.render('doctor',{});
+                        res.redirect('/user/doctor')
                         // Login.find({}, function(err,doc) {
                         //     if (err) {
                         //         console.log(err);
@@ -212,8 +227,12 @@ router.post('/login',(req,res,next) => {
 
 router.get('/doctor', (req, res) => {
     res.render('doctor', {})
+    
 });
 
+router.get('/login', (req, res) => {
+    res.render('doctor', {})
+});
 
 router.post('/doctor',(req,res,next) => {
     // const patDetail=req.body;
