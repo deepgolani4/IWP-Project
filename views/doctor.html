@@ -155,51 +155,39 @@
     <div class="main">  
       <div class="navbar">
         <ul>
-          <li><a class="logout" href="/user/logout"> logout </a></li>
+          <li><a class="logout" href="/user/logout"> Logout </a></li>
         </ul>
       </div>
 
       <div class="details">
-        <span class="doctor">
-            Doctor: Dr Ali Toppo
+        <span class="doctor"  style="color: white;">
+          Welcome,doctor         
         </span>
       </div>
 
       <div class="history">
-        <u style="font-size: 20px;"><h3>Select Patient</h3></u><br />
+        <u style="font-size: 20px;"><h3 style="color: white;">Select Patient</h3></u><br />
         <select name="name">
           <optgroup id="list" label="General" name="patName">
             <option>Ramesh Kumar</option>
-            <option>shirsha munjani</option>
-            <option>nimish shah</option>
-            <option>deep golani</option>
-            <option>tanu</option>
-            <option>sidhant tiwari</option>
-            <option>soumya mahato</option>
-            <option>harjyout bagga</option>
-            <option>guneshwar singh</option>
-            <option>zxc</option>
-            <option>Michael Rodriguez</option>
-            <option>shrishty gupta</option>
-            <option>nishant gada</option>
-            <option>muskan agarwal</option>
+            
           </optgroup>
+          
         </select>
-        <button style="padding: 5px;width: 120px;"><b>select</b></button>
-      
+
         <br/><br/>
         <div class="status">
-          <h3  style="font-size: 20px;">Patient Status:  Active</h3></u><br />
+          <h3  style="font-size: 20px;color: white;">Patient Status:  Active</h3></u><br />
         </div>
         <br/>
 
         <div class="patient_history">
-          <u style="font-size: 20px;"><h3>Patient History</h3></u><br />
-          The Patient has been diagnosed by Trauma and heart illness for a while.
+          <u style="font-size: 20px;color: white;"><h3>Patient History</h3></u><br />
+          <P style="color: white;">The Patient has been diagnosed by Trauma and heart illness for a while.
         He has been in a Serious condition and is pretty unwell in the duration.
         Several Acute disorders have been detected. The reports are not that
         promising either. There has been a brief history of Smoking and cocaine
-        addiction.
+        addiction.</P>
         
 
         </div>
@@ -208,9 +196,9 @@
       
       <div class="schedules">
         <div class="meds">
-          <h2><u>Add Patient Details</u></h2>
+          <h2 style="color: white;"><u style="color: white;">Add Patient Details</u></h2>
           <br />
-          <h3>Medication</h3>
+          <h3 style="color: white;">Medication</h3>
             <a href="#addmed">&emsp;<button type="button" onclick="addmed()">&emsp;Add Medicine & Update History&emsp;</button></a>
             <a href="#renew_medicine">&emsp;<button type="button" onclick="addrenew()">&emsp;Renew Medications&emsp;</button></a>
             &emsp;<button type="button"onclick="adddelete()">&emsp;Patient Disable&emsp;</button>
@@ -218,8 +206,8 @@
         </div>
         <div class="search">
           <br />
-          <span class="diag"><h2>Diagnosed: Tri-Cuspid Valves Replacement</h2>
-           <a href="#diagnosed"><button type="reset" class="edit" onclick="addedit()">&emsp;Edit&emsp;</button></a>
+          <span class="diag"><h2  style="color: white;"> Diagnosed: Tri-Cuspid Valves Replacement</h2>
+           <!-- <a href="#diagnosed"><button type="reset" class="edit" onclick="addedit()">&emsp;Edit&emsp;</button></a> -->
            <a href="#tests"><button class="edit" type="button" onclick="addtest()">&emsp;Schedule Tests&emsp;</button></span></a>
           <br />
           <h2 style="color: red;" id="search" onclick="searchmed()">
@@ -245,22 +233,22 @@
             <li>Total Deaths</li>
           </ul>
           <ul class="corona">
-            <li id="cases">-</li>
-            <li id="recovered">-</li>
-            <li id="deaths">-</li>
+            <li id="cases"  style="color: white;">-</li>
+            <li id="recovered"  style="color: white;">-</li>
+            <li id="deaths"  style="color: white;" >-</li>
           </ul>
           <ul class="corona">
-            <li id="newcases">-</li>
+            <li id="newcases"  style="color: white;">-</li>
             <li>-</li>
-            <li id="newdeaths">-</li>
+            <li id="newdeaths"  style="color: white;">-</li>
           </ul>
         </div>
       </div>
       <div></div>
       <div class="motto">
         <br />
-        <h3 style="margin-bottom: 4px;"><u>#flattenthecurve</u></h3>
-        <h3>
+        <h3 style="margin-bottom: 4px;"><u  style="color: white;">#flattenthecurve</u></h3>
+        <h3  style="color: white;">
           Restrict today,
           <span style="color: lightblue;">For A Safer Tomorrow.</span> Avoid
           Going out during Corona-Virus Lockdown.
@@ -273,24 +261,24 @@
     <div style="position: relative;top:1px;width: 1px;">
       </div>
     <div class="modal_medicine" id="addmed">
-      
       <!-- <form method="POST"> -->
         <!-- <input type="name" name="name" placeholder="Name of the patient"><br/> -->
-        <h2>Add Medicine</h2><br/>
-        <input type="name" name="nameOfMed" placeholder="Name of the medicine"><br/>
-        <input type="name" name="numberOfMed" placeholder="Number of days"><br/>
-        <input type="name"  name="NuberOfMedDay" placeholder="Number of times a day"/><br/>
-        <textarea placeholder="Patient History" name="patHistory"></textarea><br/>
-        <button class="" type="submit" style="padding: 5px;width: 120px;"><b>Submit</b></button>
+        <h2  style="color: white;">Add Medicine</h2><br/>
+        <input style="color: white;" type="name" name="nameOfMed" placeholder="Name of the medicine"><br/>
+        <input style="color: white;" type="name" name="numberOfMed" placeholder="Number of days"><br/>
+        <input style="color: white;"  type="name"  name="NuberOfMedDay" placeholder="Number of times a day"/><br/>
+        <textarea style="color: white;" placeholder="Patient History" name="patHistory"></textarea><br/>
+        <button type="submit" style="padding: 5px;width: 120px;"><b>Submit</b></button>
+        <!-- <button type="submit" style="padding-left: 5px;">submit</button> -->
       <!-- </form> -->
-    </div>
+   </div>
   </form>
     
 
 
     <div class="modal-medicine" id="renew_medicine">
       
-      <form>
+      <form  style="color: white;">
           <h2>Renewed Medicines</h2><br/>
            1. <b>Valent 80</b>: 2 X 24days<br />
           2. <b>Biselect 5</b>: 3 X 30days<br />
@@ -303,7 +291,7 @@
     <div class="modal-medicine" id="diagnosed">
       
       <form>
-        <h2>Update Diagnosis</h2><br/>
+        <h2  style="color: white;">Update Diagnosis</h2><br/>
         <input type="name" placeholder="Name of the Disease"><br/>
         <button class="addbtn"><b>Submit</b></button>&emsp;
       </form>
@@ -315,7 +303,7 @@
     <div class="modal-medicine" id="tests">
       
       <form>
-        <h2>Schedule Examination</h2><br/>
+        <h2  style="color: white;">Schedule Examination</h2><br/>
         <input type="name" placeholder="Name of the Test"><br/>
         <input type="name" placeholder="Description"><br/>
         <button class="addbtn"><b>Submit</b></button>&emsp;
@@ -354,7 +342,6 @@
         }    
       });
     </script>
-  
   
   </body>
 </html>
